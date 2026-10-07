@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <link rel="icon" type="image/png" href="../images/favicon.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil do Psicólogo - Psicocenter</title>
+    <link rel="stylesheet" href="../style/ver_perfil_psicologo.css">
+    <link rel="stylesheet" href="../style/avaliacao.css">
+</head>
+
+<body>
+
+    <header class="topo-perfil">
+        <img src="../images/logo-psico-center.png" alt="Logo Psicocenter">
+        <h1 class="titulo-topo">Psicocenter</h1>
+        <nav class="menu-topo">
+            <a href="buscar_profissionais.html">← Voltar</a>
+        </nav>
+    </header>
+
+    <main class="conteudo-perfil">
+
+        <p id="loadingIndicator" class="carregando-dados">
+            <span class="spinner"></span>
+            Carregando dados do psicólogo...
+        </p>
+
+        <div class="card-perfil" id="cardPerfil" style="display:none;">
+
+            <img id="profilePhoto" class="foto-perfil" src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><rect width='200' height='200' rx='100' fill='%23c7d2e3'/><circle cx='100' cy='78' r='38' fill='%23ffffff'/><path d='M34 172c8-46 42-70 66-70s58 24 66 70' fill='%23ffffff'/></svg>" alt="Foto do psicólogo">
+
+            <h2 id="fullName">—</h2>
+            <p class="crp" id="crpVal">—</p>
+
+            <p id="ratingVal" class="rating-summary"></p>
+
+            <div class="tags" id="especialidadesVal"></div>
+
+            <p class="localizacao" id="localizacaoVal"></p>
+
+            <div class="modalidades" id="modalidadesVal"></div>
+
+            <p class="preco" id="precoVal"></p>
+
+            <hr>
+
+            <div class="informacoes">
+
+                <p>
+                    <strong>Formação:</strong>
+                    <span id="formacaoVal">—</span>
+                </p>
+
+                <p>
+                    <strong>Instituição:</strong>
+                    <span id="instituicaoVal">—</span>
+                </p>
+
+                <p>
+                    <strong>Anos de experiência:</strong>
+                    <span id="experienciaVal">—</span>
+                </p>
+
+                <p>
+                    <strong>Biografia:</strong>
+                    <span id="bioVal">—</span>
+                </p>
+
+            </div>
+
+            <a href="#" id="agendarBtn" class="btn-agendar">Agendar consulta</a>
+
+        </div>
+
+    </main>
+
+    <script src="../js/api-config.js"></script>
+    <script src="../js/avatar.js"></script>
+    <script src="../js/icons.js"></script>
+    <script src="../js/avaliacao.js"></script>
+    <script src="../js/ver_perfil_psicologo.js"></script>
+
+</body>
+
+</html>

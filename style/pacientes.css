@@ -1,0 +1,99 @@
+.patient-card {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  background: rgba(255, 255, 255, 0.88);
+  border: 1px solid var(--border);
+  border-left: 6px solid var(--primary);
+  border-radius: 18px;
+  padding: 20px 22px;
+  box-shadow: 0 10px 24px rgba(28, 34, 72, 0.08);
+}
+
+.patient-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.patient-info {
+  min-width: 0;
+}
+
+.patient-photo {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  object-fit: cover;
+  background: #eef2fb;
+}
+
+.patient-info h3 {
+  margin: 0 0 4px;
+  color: var(--primary-dark);
+  font-size: 1.15rem;
+}
+
+.patient-info .meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  row-gap: 4px;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+/* cada grupo (ícone + email, ícone + telefone...) prefere não quebrar no
+   meio — se não couber tudo na linha, o grupo inteiro pula pra próxima.
+   Mas em telas bem estreitas nem um grupo sozinho cabe (um email longo,
+   por exemplo) — "nowrap" ali forçaria ele a estourar pra fora do card,
+   então overflow-wrap deixa quebrar como último recurso, sem soltar o
+   separador sozinho numa linha (que agora é um border-left, não mais um
+   caractere "|" solto) */
+.patient-info .meta .meta-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  max-width: 100%;
+  overflow-wrap: anywhere;
+}
+
+.patient-info .meta .meta-item:not(:first-child) {
+  padding-left: 14px;
+  margin-left: 10px;
+  border-left: 1px solid var(--border);
+}
+
+.patient-appointments {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.patient-appointment-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+  background: rgba(43, 67, 145, 0.05);
+  border-radius: 12px;
+  padding: 10px 14px;
+}
+
+.patient-appointment-row .meta {
+  display: flex;
+  gap: 14px;
+  color: var(--muted);
+  font-size: 0.92rem;
+  flex-wrap: wrap;
+}
+
+.patient-actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  border-top: 1px solid var(--border);
+  padding-top: 14px;
+}

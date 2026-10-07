@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <link rel="icon" type="image/png" href="../images/favicon.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Perfil - Psicocenter</title>
+    <link rel="stylesheet" href="../style/perfil_paciente.css">
+    <link rel="stylesheet" href="../style/editar_perfil_paciente.css">
+    <link rel="stylesheet" href="../style/avaliacao.css">
+</head>
+
+<body>
+
+    <header class="topo-paciente">
+        <img src="../images/logo-psico-center.png" alt="Logo Psicocenter">
+        <h1 class="titulo-topo">Psicocenter</h1>
+        <nav class="menu-topo">
+            <a href="perfil_paciente.html">← Voltar ao perfil</a>
+        </nav>
+    </header>
+
+    <main class="conteudo-paciente">
+
+        <div class="editar-box">
+
+            <p id="loadingIndicator" class="carregando-dados" style="display:none;">
+                <span class="spinner"></span>
+                Carregando dados...
+            </p>
+
+            <form id="editForm" class="editar-form">
+
+                <h2 class="titulo-secao">Editar meus dados</h2>
+
+                <div class="photo-preview-wrap">
+                    <img id="photoPreview" src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><rect width='200' height='200' rx='100' fill='%23c7d2e3'/><circle cx='100' cy='78' r='38' fill='%23ffffff'/><path d='M34 172c8-46 42-70 66-70s58 24 66 70' fill='%23ffffff'/></svg>" alt="Preview">
+                </div>
+                <div class="photo-actions">
+                    <label class="file-label">
+                        Escolher foto
+                        <input id="edit_photo" type="file" accept="image/*" hidden>
+                    </label>
+                    <button type="button" id="removePhotoBtn" class="remove-photo-btn">Excluir foto</button>
+                </div>
+
+                <div class="input-box">
+                    <label>Nome</label>
+                    <input id="edit_name" type="text" required>
+                </div>
+
+                <div class="input-box">
+                    <label>Email</label>
+                    <input id="edit_email" type="email" required>
+                </div>
+
+                <div class="input-box">
+                    <label>Telefone</label>
+                    <input id="edit_phone" type="tel">
+                </div>
+
+                <div class="input-box">
+                    <label>Data de nascimento</label>
+                    <input id="edit_birth" type="date" min="1900-01-01">
+                </div>
+
+                <div class="input-box">
+                    <label>Gênero</label>
+                    <select id="edit_gender">
+                        <option value="">Prefiro não dizer</option>
+                        <option value="Feminino">Feminino</option>
+                        <option value="Masculino">Masculino</option>
+                        <option value="Outro">Outro</option>
+                    </select>
+                </div>
+
+                <div class="input-box">
+                    <label>Profissão</label>
+                    <input id="edit_occupation" type="text">
+                </div>
+
+                <div class="input-box">
+                    <label>Estado</label>
+                    <select id="edit_state">
+                        <option value="">Estado</option>
+                        <option value="AC">Acre (AC)</option>
+                        <option value="AL">Alagoas (AL)</option>
+                        <option value="AP">Amapá (AP)</option>
+                        <option value="AM">Amazonas (AM)</option>
+                        <option value="BA">Bahia (BA)</option>
+                        <option value="CE">Ceará (CE)</option>
+                        <option value="DF">Distrito Federal (DF)</option>
+                        <option value="ES">Espírito Santo (ES)</option>
+                        <option value="GO">Goiás (GO)</option>
+                        <option value="MA">Maranhão (MA)</option>
+                        <option value="MT">Mato Grosso (MT)</option>
+                        <option value="MS">Mato Grosso do Sul (MS)</option>
+                        <option value="MG">Minas Gerais (MG)</option>
+                        <option value="PA">Pará (PA)</option>
+                        <option value="PB">Paraíba (PB)</option>
+                        <option value="PR">Paraná (PR)</option>
+                        <option value="PE">Pernambuco (PE)</option>
+                        <option value="PI">Piauí (PI)</option>
+                        <option value="RJ">Rio de Janeiro (RJ)</option>
+                        <option value="RN">Rio Grande do Norte (RN)</option>
+                        <option value="RS">Rio Grande do Sul (RS)</option>
+                        <option value="RO">Rondônia (RO)</option>
+                        <option value="RR">Roraima (RR)</option>
+                        <option value="SC">Santa Catarina (SC)</option>
+                        <option value="SP">São Paulo (SP)</option>
+                        <option value="SE">Sergipe (SE)</option>
+                        <option value="TO">Tocantins (TO)</option>
+                    </select>
+                </div>
+
+                <div class="input-box">
+                    <label>Cidade</label>
+                    <select id="edit_city" disabled>
+                        <option value="">Selecione um estado primeiro</option>
+                    </select>
+                </div>
+
+                <p id="editMessage" class="mensagem-edicao"></p>
+
+                <div class="edit-actions">
+                    <button type="submit" class="btn-primario" id="saveBtn">Salvar alterações</button>
+                    <a href="perfil_paciente.html" class="btn-secundario" style="text-decoration:none; display:flex; align-items:center; justify-content:center;">Cancelar</a>
+                </div>
+            </form>
+
+            <div class="conta-actions">
+                <button type="button" id="logoutBtn" class="btn-sair">Sair</button>
+                <button type="button" id="deleteAccountBtn" class="btn-perigo">Excluir conta</button>
+            </div>
+
+        </div>
+
+    </main>
+
+    <script src="../js/api-config.js"></script>
+    <script src="../js/image-compress.js"></script>
+    <script src="../js/avatar.js"></script>
+    <script src="../js/cidades.js"></script>
+    <script src="../js/confirmar-exclusao.js"></script>
+    <script src="../js/editar_perfil_paciente.js"></script>
+</body>
+
+</html>
